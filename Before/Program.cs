@@ -10,6 +10,11 @@ namespace Before
     {
         static void Main(string[] args)
         {
+            Account myAcc = new Account(() => { });
+            myAcc.HolderVerified();
+            myAcc.Close();
+            myAcc.Deposit(10);
+            Console.WriteLine(myAcc.Balance);
         }
     }
 }

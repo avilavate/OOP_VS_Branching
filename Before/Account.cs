@@ -8,10 +8,10 @@ namespace Before
 {
     class Account
     {
-        private double Balance { get; set; }
-        private bool isVarified { get; set; }
-        private bool isFrozen { get; set; }
-        private bool isClosed { get; set; }
+        public double Balance { get; set; }
+        //private bool isVarified { get; set; }
+        //private bool isFrozen { get; set; }
+        //private bool isClosed { get; set; }
         private IFreezeable State { get; set; }
         public Action OnAccountUnFreez { get; private set; }
 
@@ -46,12 +46,12 @@ namespace Before
             //}
             //this.Balance = this.Balance + ammount;
 
-            this.State.Deposite(() => { this.Balance -= ammount; });
+            this.State.Deposite(() => { this.Balance += ammount; });
         }
 
         public void HolderVerified()
         {
-            this.State=this.State.Holderverified();
+            this.State = this.State.Holderverified();
         }
 
         public void Close()
