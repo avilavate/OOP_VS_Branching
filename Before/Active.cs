@@ -2,32 +2,32 @@
 
 namespace Before
 {
-    internal class Active : IFreezeable
+    internal class Active : IAccountState
     {
         public Action OnAccountUnFreez { get; set; }
         public Active(Action onAccountUnFreez)
         {
             this.OnAccountUnFreez = onAccountUnFreez;
         }
-        public IFreezeable Freez()
+        public IAccountState Freez()
         {
             return new Frozen(this.OnAccountUnFreez);
         }
 
-        public IFreezeable WithDraw(Action subtractFromBalance)
+        public IAccountState WithDraw(Action subtractFromBalance)
         {
             subtractFromBalance();
             return this;
         }
 
-        public IFreezeable Deposite(Action addToBalance)
+        public IAccountState Deposite(Action addToBalance)
         {
             addToBalance();
             return this;
         }
-        public IFreezeable Holderverified() => this;
+        public IAccountState Holderverified() => this;
 
-        public IFreezeable Close() => new Closed();
+        public IAccountState Close() => new Closed();
       
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Before
 {
-    class Frozen : IFreezeable
+    class Frozen : IAccountState
     {
         public Action OnAccountUnFreez { get; set; }
 
@@ -14,24 +14,24 @@ namespace Before
         {
             this.OnAccountUnFreez = onAccountUnFreez;
         }
-        public IFreezeable Freez() => this;
+        public IAccountState Freez() => this;
 
-        public IFreezeable WithDraw(Action subtractFromBalance)
+        public IAccountState WithDraw(Action subtractFromBalance)
         {
             this.OnAccountUnFreez();
             subtractFromBalance();
             return new Active(this.OnAccountUnFreez);
         }
 
-        public IFreezeable Deposite(Action addToBalance)
+        public IAccountState Deposite(Action addToBalance)
         {
             this.OnAccountUnFreez();
             addToBalance();
             return new Active(this.OnAccountUnFreez);
         }
 
-        public IFreezeable Holderverified() => this;
+        public IAccountState Holderverified() => this;
 
-        public IFreezeable Close() => new Closed();      
+        public IAccountState Close() => new Closed();      
     }
 }

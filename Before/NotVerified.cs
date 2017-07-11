@@ -2,7 +2,7 @@
 
 namespace Before
 {
-    class NotVerified : IFreezeable
+    class NotVerified : IAccountState
     {
         public Action OnAccountUnFreez { get; private set; }
         public NotVerified(Action onAccountUnFreez)
@@ -10,18 +10,18 @@ namespace Before
             this.OnAccountUnFreez = onAccountUnFreez;
         }
 
-        public IFreezeable Deposite(Action addToBalance) => this;
-        public IFreezeable WithDraw(Action subtractFromBalance) => this;
+        public IAccountState Deposite(Action addToBalance) => this;
+        public IAccountState WithDraw(Action subtractFromBalance) => this;
 
-        public IFreezeable Freez() => this;
+        public IAccountState Freez() => this;
        
 
-        public IFreezeable Holderverified()
+        public IAccountState Holderverified()
         {
             return new Active(this.OnAccountUnFreez);
         }
 
-        public IFreezeable Close() => new Closed();
+        public IAccountState Close() => new Closed();
       
     }
 }

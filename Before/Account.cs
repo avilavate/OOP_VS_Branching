@@ -5,7 +5,7 @@ namespace Before
     class Account
     {
         public double Balance { get; set; }
-        private IFreezeable State { get; set; }
+        private IAccountState State { get; set; }
         public Action OnAccountUnFreez { get; private set; }
 
         public Account(Action onAccountUnfreez)

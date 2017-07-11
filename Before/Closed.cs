@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Before
 {
-    class Closed : IFreezeable
+    class Closed : IAccountState
     {
-        public IFreezeable Close() => this;
-        public IFreezeable Deposite(Action addToBalance) => this;
-        public IFreezeable Freez() => this;
-        public IFreezeable Holderverified() => this;
-        public IFreezeable WithDraw(Action subtractFromBalance) => this;
+        public IAccountState Close() => this;
+        public IAccountState Deposite(Action addToBalance) => this;
+        public IAccountState Freez() => this;
+        public IAccountState Holderverified() => this;
+        public IAccountState WithDraw(Action subtractFromBalance) => this;
     }
 }

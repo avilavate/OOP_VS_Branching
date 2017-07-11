@@ -2,12 +2,12 @@
 
 namespace Before
 {
-    interface IFreezeable
+    interface IAccountState
     {
-        IFreezeable Freez();
-        IFreezeable WithDraw(Action subtractFromBalance);
-        IFreezeable Deposite(Action addToBalance );
-        IFreezeable Holderverified();
-        IFreezeable Close();
+        IAccountState Freez();
+        IAccountState WithDraw(Action subtractFromBalance);
+        IAccountState Deposite(Action addToBalance );
+        IAccountState Holderverified();
+        IAccountState Close();
     }
 }
