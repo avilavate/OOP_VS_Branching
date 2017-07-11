@@ -29,9 +29,7 @@ namespace Before
             addToBalance();
             return new Active(this.OnAccountUnFreez);
         }
-
         public IAccountState Holderverified() => this;
-
         public IAccountState Close() => new Closed();      
     }
 }

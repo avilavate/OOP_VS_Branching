@@ -12,16 +12,9 @@ namespace Before
 
         public IAccountState Deposite(Action addToBalance) => this;
         public IAccountState WithDraw(Action subtractFromBalance) => this;
-
         public IAccountState Freez() => this;
-       
-
-        public IAccountState Holderverified()
-        {
-            return new Active(this.OnAccountUnFreez);
-        }
-
+        public IAccountState Holderverified() => new Active(this.OnAccountUnFreez);
         public IAccountState Close() => new Closed();
-      
+
     }
 }

@@ -5,7 +5,20 @@ namespace Before
     class Account
     {
         public double Balance { get; set; }
-        private IAccountState State { get; set; }
+        private IAccountState _state;
+        public IAccountState State
+        {
+            get
+            {
+                Console.WriteLine(_state.GetType());
+                return _state;
+            }
+            set
+            {
+                Console.WriteLine(value.GetType());
+                _state = value;
+            }
+        }
         public Action OnAccountUnFreez { get; private set; }
 
         public Account(Action onAccountUnfreez)
