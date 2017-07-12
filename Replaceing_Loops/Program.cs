@@ -23,22 +23,48 @@ namespace Replaceing_Loops
         private static IPainter FindCheapestPainter(double sqMeters, IEnumerable<IPainter> painters)
         {
             //ToDo: Loop which we will replace:
-            IPainter result = null;
-            double cost = double.MaxValue;
-            foreach (var painter in painters)
-            {
-                if (painter.IsAvailable)
-                {
-                    var newCost = painter.CostToPaintArea(sqMeters);
-                    if (cost > newCost)
-                    {
-                        cost = newCost;
-                        result = painter;
-                    }
-                }
-            }
+            //IPainter result = null;
+            //double cost = double.MaxValue;
+            //foreach (var painter in painters)
+            //{
+            //    if (painter.IsAvailable)
+            //    {
+            //        var newCost = painter.CostToPaintArea(sqMeters);
+            //        if (cost > newCost)
+            //        {
+            //            cost = newCost;
+            //            result = painter;
+            //        }
+            //    }
+            //}
             //-------------------------------:
-            return result;
+
+            //Using linq
+
+            //return painters.
+            //    Where(p => p.IsAvailable).
+            //    OrderBy(p =>p.CostToPaintArea(sqMeters)).
+            //    FirstOrDefault();
+
+
+            //-------------------------------:
+
+            //A more better Way:
+
+            var q = painters.
+                Where(p => p.IsAvailable).
+                Aggregate((IPainter)(null),
+                (a, b) =>
+                {
+                    return a!=null && a.CostToPaintArea(sqMeters) < b.CostToPaintArea(sqMeters) ? a : b;
+                }
+                );
+
+            return q;
+
+            //-----------------:
+
+            // return result;
         }
     }
 }
