@@ -10,18 +10,18 @@ namespace Replaceing_Loops
             where T : class
             where TIn : IComparable<TIn>
             =>
-        //list.
-        //     Select(obj => Tuple.Create(obj, func(obj))).
-        //     Aggregate((Tuple<T, TIn>)null,
-        //     (best, cur) => best == null || cur.Item2.CompareTo(best.Item2) < 0 ? cur : best).
-        //     Item1;
-        list.
-            Aggregate(
-                    (T)(null),
-                    (a, b) =>
-                            {
-                                return a != null && func(a).CompareTo(func(b)) < 0 ? a : b;
-                            }
-                    );
+                list.
+                    Aggregate(
+                            (T)(null),
+                            (a, b) =>
+                                    {
+                                        return a != null && func(a).CompareTo(func(b)) < 0 ? a : b;
+                                    }
+                            );
     }
 }
+//list.
+//     Select(obj => Tuple.Create(obj, func(obj))).
+//     Aggregate((Tuple<T, TIn>)null,
+//     (best, cur) => best == null || cur.Item2.CompareTo(best.Item2) < 0 ? cur : best).
+//     Item1;

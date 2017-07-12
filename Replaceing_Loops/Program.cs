@@ -15,9 +15,10 @@ namespace Replaceing_Loops
                 new ProportionalPainter(10, new TimeSpan(2, 0, 0),true),
                 new ProportionalPainter(14, new TimeSpan(1, 0, 0), true),
                 new ProportionalPainter(8, new TimeSpan(3, 0, 0), false),
+                 new ProportionalPainter(1, new TimeSpan(3, 0, 0), true),
             };
 
-           var cheapestPainter= FindCheapestPainter(100, painters);
+            var cheapestPainter = FindCheapestPainter(100, painters);
             Console.WriteLine(cheapestPainter.Rate);
             Console.ReadKey();
         }
@@ -67,7 +68,7 @@ namespace Replaceing_Loops
 
             //The best way:
             //  painters = painters as IEnumerable<ProportionalPainter>;
-            
+
             return painters.
                    Where(p => p.IsAvailable).
                    MinValueFinder(p => p.CostToPaintArea(sqMeters));
