@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Replaceing_Loops
 {
@@ -53,14 +50,11 @@ namespace Replaceing_Loops
 
             //A more better Way:
 
-            //var q = painters.
-            //    Where(p => p.IsAvailable).
-            //    Aggregate((IPainter)(null),
-            //    (a, b) =>
-            //    {
-            //        return a != null && a.CostToPaintArea(sqMeters) < b.CostToPaintArea(sqMeters) ? a : b;
-            //    }
-            //    );
+            var q = painters.
+                Where(p => p.IsAvailable).
+                Aggregate((IPainter)(null),
+                (a, b) => a != null && a.CostToPaintArea(sqMeters) < b.CostToPaintArea(sqMeters) ? a : b
+                );
 
             //return q;
 
@@ -69,9 +63,17 @@ namespace Replaceing_Loops
             //The best way:
             //  painters = painters as IEnumerable<ProportionalPainter>;
 
+            var fastesPainter = painters.
+                   Where(p => p.IsAvailable).
+                   MinValueFinder<IPainter, TimeSpan>(p => p.TimetoPaintArea(sqMeters));
+
+            Console.WriteLine(fastesPainter.Speedpermetersq);
+
             return painters.
                    Where(p => p.IsAvailable).
                    MinValueFinder(p => p.CostToPaintArea(sqMeters));
+
+
 
             //-----------------:
 

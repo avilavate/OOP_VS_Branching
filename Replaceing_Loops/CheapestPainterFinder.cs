@@ -13,7 +13,8 @@ namespace Replaceing_Loops
             => list.
                     Aggregate(
                             (T)(null),
-                            (a, b) => a != null && func(a).CompareTo(func(b)) < 0 ? a : b
+                            (a, b) => a != null && func(a).CompareTo(func(b)) < 0 ? a : b,
+                            f => f
                             );
     }
 }
