@@ -3,3 +3,4 @@ C:\Users\admin\NG2\C#\OOP_And_Branching\OOP_Vs_Branching\Before\bin\Debug\Before
 C:\Users\admin\NG2\C#\OOP_And_Branching\OOP_Vs_Branching\Before\bin\Debug\Before.pdb
 C:\Users\admin\NG2\C#\OOP_And_Branching\OOP_Vs_Branching\Before\obj\Debug\Before.exe
 C:\Users\admin\NG2\C#\OOP_And_Branching\OOP_Vs_Branching\Before\obj\Debug\Before.pdb
+C:\Users\admin\NG2\C#\OOP_And_Branching\OOP_Vs_Branching\Before\obj\Debug\Before.csprojResolveAssemblyReference.cache

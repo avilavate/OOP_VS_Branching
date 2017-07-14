@@ -19,6 +19,14 @@ namespace Replaceing_Loops
             Console.WriteLine(cheapestPainter.Rate);
             Console.ReadKey();
         }
+
+
+        //Cleanest fastest Way of gettinfg cheapest, fastest, available painters ==> Composite pattern.
+        private static IPainter GetFastestPainter(double sqMeters, Painters painters) => painters.GetAvailable().GetFastestOne(sqMeters);
+        private static IPainter GetCheapestPainter(double sqMeters, Painters painters) => painters.GetAvailable().GetCheapestOne(sqMeters);
+        private static Painters GetAllAvailablePainters(Painters painters) => painters.GetAvailable();
+
+
         private static IPainter FindCheapestPainter(double sqMeters, IEnumerable<IPainter> painters)
         {
             //ToDo: Loop which we will replace:
@@ -50,11 +58,11 @@ namespace Replaceing_Loops
 
             //A more better Way:
 
-            var q = painters.
-                Where(p => p.IsAvailable).
-                Aggregate((IPainter)(null),
-                (a, b) => a != null && a.CostToPaintArea(sqMeters) < b.CostToPaintArea(sqMeters) ? a : b
-                );
+            //var q = painters.
+            //    Where(p => p.IsAvailable).
+            //    Aggregate((IPainter)(null),
+            //    (a, b) => a != null && a.CostToPaintArea(sqMeters) < b.CostToPaintArea(sqMeters) ? a : b
+            //    );
 
             //return q;
 
@@ -63,11 +71,11 @@ namespace Replaceing_Loops
             //The best way:
             //  painters = painters as IEnumerable<ProportionalPainter>;
 
-            var fastesPainter = painters.
-                   Where(p => p.IsAvailable).
-                   MinValueFinder<IPainter, TimeSpan>(p => p.TimetoPaintArea(sqMeters));
+            //var fastesPainter = painters.
+            //       Where(p => p.IsAvailable).
+            //       MinValueFinder<IPainter, TimeSpan>(p => p.TimetoPaintArea(sqMeters));
 
-            Console.WriteLine(fastesPainter.Speedpermetersq);
+            //Console.WriteLine(fastesPainter.Speedpermetersq);
 
             return painters.
                    Where(p => p.IsAvailable).
@@ -76,6 +84,8 @@ namespace Replaceing_Loops
 
 
             //-----------------:
+
+
 
 
             // return result;

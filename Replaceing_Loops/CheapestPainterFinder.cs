@@ -9,12 +9,12 @@ namespace Replaceing_Loops
         public static T MinValueFinder<T, TIn>(this IEnumerable<T> list, Func<T, TIn> func)
             where T : class
             where TIn : IComparable<TIn>
-
-            => list.
-                    Aggregate(
+            =>
+            list.
+                 Aggregate(
                             (T)(null),
                             (a, b) => a != null && func(a).CompareTo(func(b)) < 0 ? a : b,
-                            f => f
+                            f => (T)(null)
                             );
     }
 }
