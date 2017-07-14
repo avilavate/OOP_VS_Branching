@@ -14,7 +14,7 @@ namespace Replaceing_Loops
                  Aggregate(
                             (T)(null),
                             (a, b) => a != null && func(a).CompareTo(func(b)) < 0 ? a : b,
-                            f => (T)(null)
+                            f => f
                             );
     }
 }

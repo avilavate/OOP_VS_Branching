@@ -15,7 +15,8 @@ namespace Replaceing_Loops
                  new ProportionalPainter(1, new TimeSpan(3, 0, 0), true),
             };
 
-            var cheapestPainter = FindCheapestPainter(100, painters);
+            // var cheapestPainter = FindCheapestPainter(100, painters);
+            var cheapestPainter = GetCheapestPainter(100, new Painters(painters));
             Console.WriteLine(cheapestPainter.Rate);
             Console.ReadKey();
         }

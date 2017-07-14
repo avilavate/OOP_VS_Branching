@@ -3,3 +3,4 @@ C:\Users\admin\NG2\C#\OOP_And_Branching\OOP_Vs_Branching\Replaceing_Loops\bin\Re
 C:\Users\admin\NG2\C#\OOP_And_Branching\OOP_Vs_Branching\Replaceing_Loops\bin\Release\Replaceing_Loops.pdb
 C:\Users\admin\NG2\C#\OOP_And_Branching\OOP_Vs_Branching\Replaceing_Loops\obj\Release\Replaceing_Loops.exe
 C:\Users\admin\NG2\C#\OOP_And_Branching\OOP_Vs_Branching\Replaceing_Loops\obj\Release\Replaceing_Loops.pdb
+C:\Users\admin\NG2\C#\OOP_And_Branching\OOP_Vs_Branching\Replaceing_Loops\obj\Release\Replaceing_Loops.csprojResolveAssemblyReference.cache
