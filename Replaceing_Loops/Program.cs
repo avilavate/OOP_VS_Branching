@@ -8,24 +8,22 @@ namespace Replaceing_Loops
     {
         static void Main(string[] args)
         {
-            IEnumerable<IPainter> painters = new List<IPainter> {
-                new ProportionalPainter(10, new TimeSpan(2, 0, 0),true),
-                new ProportionalPainter(14, new TimeSpan(1, 0, 0), true),
-                new ProportionalPainter(8, new TimeSpan(3, 0, 0), false),
-                 new ProportionalPainter(1, new TimeSpan(3, 0, 0), true),
-            };
-
-            // var cheapestPainter = FindCheapestPainter(100, painters);
-            var cheapestPainter = GetCheapestPainter(100, new Painters(painters));
+            var cheapestPainter = GetCheapestPainter(100, PaintersPool());
             Console.WriteLine(cheapestPainter.Rate);
             Console.ReadKey();
         }
-
-
         //Cleanest fastest Way of gettinfg cheapest, fastest, available painters ==> Composite pattern.
         private static IPainter GetFastestPainter(double sqMeters, Painters painters) => painters.GetAvailable().GetFastestOne(sqMeters);
         private static IPainter GetCheapestPainter(double sqMeters, Painters painters) => painters.GetAvailable().GetCheapestOne(sqMeters);
         private static Painters GetAllAvailablePainters(Painters painters) => painters.GetAvailable();
+        private static Painters PaintersPool() => new Painters(new List<IPainter>{
+                                                                                     new ProportionalPainter(8, new TimeSpan(3, 0, 0), false),
+                                                                                     new ProportionalPainter(1, new TimeSpan(3, 0, 0), true),
+                                                                                     new ProportionalPainter(14, new TimeSpan(1, 0, 0), true),
+                                                                                     new ProportionalPainter(10, new TimeSpan(2, 0, 0),true),
+                                                                                       });
+
+
 
 
         private static IPainter FindCheapestPainter(double sqMeters, IEnumerable<IPainter> painters)
