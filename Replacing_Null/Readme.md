@@ -8,8 +8,9 @@
 		2- We cannot create an article with no repair guarantee.
 		3- Passing null to SoldItem constructor will also not solve above problems because:
                    a- Passing null will throw ArgumentNullException from SoldItem ctor
-                   b- if we disable validation in SoldItem ctor than the client code (i.e. Main() method will have to test
-                      for null before it makes a call to ISValid on SoldItem class
+                   b- if we disable validation in SoldItem ctor than the client code 
+		      (i.e. Main() method will have to test for null before it makes 
+		      a call to ISValid on SoldItem class
                       
 ###  Solution:
 		 1- Implement null objects (VoidGuarentee).
