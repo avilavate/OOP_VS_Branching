@@ -1,0 +1,6 @@
+C:\Users\admin\NG2\C#\OOP_And_Branching\OOP_Vs_Branching\ValueObject\bin\Debug\ValueObject.exe.config
+C:\Users\admin\NG2\C#\OOP_And_Branching\OOP_Vs_Branching\ValueObject\bin\Debug\ValueObject.exe
+C:\Users\admin\NG2\C#\OOP_And_Branching\OOP_Vs_Branching\ValueObject\bin\Debug\ValueObject.pdb
+C:\Users\admin\NG2\C#\OOP_And_Branching\OOP_Vs_Branching\ValueObject\obj\Debug\ValueObject.csprojResolveAssemblyReference.cache
+C:\Users\admin\NG2\C#\OOP_And_Branching\OOP_Vs_Branching\ValueObject\obj\Debug\ValueObject.exe
+C:\Users\admin\NG2\C#\OOP_And_Branching\OOP_Vs_Branching\ValueObject\obj\Debug\ValueObject.pdb

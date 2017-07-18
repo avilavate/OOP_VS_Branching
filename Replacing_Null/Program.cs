@@ -16,9 +16,9 @@ namespace Replacing_Null
              *                     for null before it makes a call to ISValid on SoldItem class
              *                     
              * Solution:
-             * Implent null objects (VoidGuarentee)                     
+             * Implement null objects (VoidGuarentee)                     
              */
-            var RepairGuarentee = new Guarantee(new DateTime(2016,1,1), TimeSpan.FromDays(1000));
+            var RepairGuarentee = new Guarantee(new DateTime(2016, 1, 1), TimeSpan.FromDays(1000));
             var MoneyBackGurantee = new Guarantee(new DateTime(2016, 1, 1), TimeSpan.FromDays(10));
             var article = new SoldItem(MoneyBackGurantee, RepairGuarentee);
 
@@ -28,11 +28,11 @@ namespace Replacing_Null
             Console.WriteLine("Moneyback Gurantee is invalid");
             if (article.RepairGuarentee.IsValid(DateTime.Now)) Console.WriteLine($"Repair Guarentee Gurantee is valid");
             Console.WriteLine("Repair Gurantee is invalid");
-
+            Console.WriteLine();
             //Solution when we can create articles with no guarantee:
 
-            var VoidRepairGuarentee = new VoidGuarantee();
-            var VoidMoneyBackGurantee = new VoidGuarantee();
+            var VoidRepairGuarentee = VoidGuarantee.Instance;
+            var VoidMoneyBackGurantee = VoidGuarantee.Instance;
 
             var saleItem = new SoldItem(VoidMoneyBackGurantee, VoidMoneyBackGurantee);
 
