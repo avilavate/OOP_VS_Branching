@@ -2,7 +2,7 @@
 
 namespace Replacing_Null
 {
-    class VoidGuarantee : IGuarantee
+    public class VoidGuarantee : IGuarantee
     {
         //Singleton design
         private static VoidGuarantee _instance;

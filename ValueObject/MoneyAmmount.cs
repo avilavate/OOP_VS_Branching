@@ -5,7 +5,7 @@
         public decimal Amount { get; }
         public string Currency { get; }
 
-        public MoneyAmount(decimal amount, string currency)
+        public MoneyAmount(decimal amount, string currency="$")
         {
             Amount = amount;
             Currency = currency;

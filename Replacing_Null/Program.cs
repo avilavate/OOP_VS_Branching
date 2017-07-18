@@ -18,8 +18,8 @@ namespace Replacing_Null
              * Solution:
              * Implement null objects (VoidGuarentee)                     
              */
-            var RepairGuarentee = new Guarantee(new DateTime(2016, 1, 1), TimeSpan.FromDays(1000));
-            var MoneyBackGurantee = new Guarantee(new DateTime(2016, 1, 1), TimeSpan.FromDays(10));
+            var RepairGuarentee = GuaranteeFactory.GenerateGuarantee(new DateTime(2016, 1, 1), TimeSpan.FromDays(1000));
+            var MoneyBackGurantee = GuaranteeFactory.GenerateGuarantee(new DateTime(2016, 1, 1), TimeSpan.FromDays(10));
             var article = new SoldItem(MoneyBackGurantee, RepairGuarentee);
 
             //claim guarantees
@@ -29,10 +29,11 @@ namespace Replacing_Null
             if (article.RepairGuarentee.IsValid(DateTime.Now)) Console.WriteLine($"Repair Guarentee Gurantee is valid");
             Console.WriteLine("Repair Gurantee is invalid");
             Console.WriteLine();
+
             //Solution when we can create articles with no guarantee:
 
-            var VoidRepairGuarentee = VoidGuarantee.Instance;
-            var VoidMoneyBackGurantee = VoidGuarantee.Instance;
+            var VoidRepairGuarentee = GuaranteeFactory.NoGuarantee();
+            var VoidMoneyBackGurantee = GuaranteeFactory.NoGuarantee();
 
             var saleItem = new SoldItem(VoidMoneyBackGurantee, VoidMoneyBackGurantee);
 
