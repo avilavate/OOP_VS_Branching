@@ -10,6 +10,18 @@ namespace Replacing_Null
     {
         static void Main(string[] args)
         {
+            /*
+             * Note this implementation doesnt support following scenarios:
+             *          1- We cannot create an article with no moneyback guarantee.
+             *          2- We cannot create an article with no repair guarantee.
+             *          3- Passing null to SoldItem constructor will also not solve above problems because:
+             *                  a- Passing null will throw ArgumentNullException from SoldItem ctor
+             *                  b- if we disable validation in SoldItem ctor than the client code (i.e. Main() method will have to test
+             *                     for null before it makes a call to ISValid on SoldItem class
+             *                     
+             * Solution:
+             * Implent null objects (VoidGuarentee)                     
+             */
             var RepairGuarentee = new Guarantee(new DateTime(2016,1,1), TimeSpan.FromDays(30));
             var MoneyBackGurantee = new Guarantee(new DateTime(2016, 1, 1), TimeSpan.FromDays(10));
             var article = new SoldItem(MoneyBackGurantee, RepairGuarentee);
