@@ -24,4 +24,5 @@ private static IPainter GetFastestPainter(double sqMeters, Painters painters) =>
 private static IPainter GetCheapestPainter(double sqMeters, Painters painters) => painters.GetAvailable().GetCheapestOne(sqMeters);
         
 private static Painters GetAllAvailablePainters(Painters painters) => painters.GetAvailable();
-            
+
+### 4- Replacing null checks and Null values with Null objects
