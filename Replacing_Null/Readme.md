@@ -3,6 +3,7 @@
 ### Problem Statement:
 
   Note this implementation doesnt support following scenarios:
+  
            	1- We cannot create an article with no moneyback guarantee.
 		2- We cannot create an article with no repair guarantee.
 		3- Passing null to SoldItem constructor will also not solve above problems because:
