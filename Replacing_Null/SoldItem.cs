@@ -8,10 +8,10 @@ namespace Replacing_Null
 {
     class SoldItem
     {
-        public Guarantee MoneyBackGuarantee { get; }
-        public Guarantee RepairGuarentee { get; }
+        public IGuarantee MoneyBackGuarantee { get; }
+        public IGuarantee RepairGuarentee { get; }
 
-        public SoldItem(Guarantee MoneyBackGuarantee, Guarantee RepairGuarentee)
+        public SoldItem(IGuarantee MoneyBackGuarantee, IGuarantee RepairGuarentee)
         {
             if (MoneyBackGuarantee == null) throw new ArgumentNullException("MoneyBackGuarantee can not be null");
             if (RepairGuarentee == null) throw new ArgumentNullException("RepairGuarentee can not be null");

@@ -2,7 +2,7 @@
 
 namespace Replacing_Null
 {
-    public class Guarantee
+    public class Guarantee : IGuarantee
     {
         public DateTime DateIssued { get; }
         public TimeSpan Duration { get; set; }

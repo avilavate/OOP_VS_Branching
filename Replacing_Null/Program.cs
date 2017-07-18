@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Replacing_Null
 {
@@ -22,7 +18,7 @@ namespace Replacing_Null
              * Solution:
              * Implent null objects (VoidGuarentee)                     
              */
-            var RepairGuarentee = new Guarantee(new DateTime(2016,1,1), TimeSpan.FromDays(30));
+            var RepairGuarentee = new Guarantee(new DateTime(2016,1,1), TimeSpan.FromDays(1000));
             var MoneyBackGurantee = new Guarantee(new DateTime(2016, 1, 1), TimeSpan.FromDays(10));
             var article = new SoldItem(MoneyBackGurantee, RepairGuarentee);
 
@@ -31,6 +27,18 @@ namespace Replacing_Null
             if (article.MoneyBackGuarantee.IsValid(DateTime.Now)) Console.WriteLine($"Moneyback Gurantee is valid");
             Console.WriteLine("Moneyback Gurantee is invalid");
             if (article.RepairGuarentee.IsValid(DateTime.Now)) Console.WriteLine($"Repair Guarentee Gurantee is valid");
+            Console.WriteLine("Repair Gurantee is invalid");
+
+            //Solution when we can create articles with no guarantee:
+
+            var VoidRepairGuarentee = new VoidGuarantee();
+            var VoidMoneyBackGurantee = new VoidGuarantee();
+
+            var saleItem = new SoldItem(VoidMoneyBackGurantee, VoidMoneyBackGurantee);
+
+            if (saleItem.MoneyBackGuarantee.IsValid(DateTime.Now)) Console.WriteLine($"Moneyback Gurantee is valid");
+            Console.WriteLine("Moneyback Gurantee is invalid");
+            if (saleItem.RepairGuarentee.IsValid(DateTime.Now)) Console.WriteLine($"Repair Guarentee Gurantee is valid");
             Console.WriteLine("Repair Gurantee is invalid");
 
             Console.Read();
