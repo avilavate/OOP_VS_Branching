@@ -2,18 +2,11 @@
 
 ### Problem Statement:
 
-<<<<<<< HEAD
 Note this implementation doesnt support following scenarios:
-         1- We cannot create an article with no moneyback guarantee.
-         2- We cannot create an article with no repair guarantee.
-         3- Passing null to SoldItem constructor will also not solve above problems because:
-=======
-  Note this implementation doesnt support following scenarios:
   
            	1- We cannot create an article with no moneyback guarantee.
 		2- We cannot create an article with no repair guarantee.
 		3- Passing null to SoldItem constructor will also not solve above problems because:
->>>>>>> 6029b93a7c292693175e607e01033433449f7d32
                    a- Passing null will throw ArgumentNullException from SoldItem ctor
                    b- if we disable validation in SoldItem ctor than the client code 
 		      (i.e. Main() method will have to test for null before it makes 
