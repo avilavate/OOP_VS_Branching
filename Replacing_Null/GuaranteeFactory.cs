@@ -4,8 +4,9 @@ namespace Replacing_Null
 {
     public static class GuaranteeFactory
     {
-        public static Guarantee GenerateGuarantee(DateTime dateIssued, TimeSpan duration) => new Guarantee(dateIssued, duration);
-        public static VoidGuarantee NoGuarantee() => VoidGuarantee.Instance;
-      
+        private static IGuarantee GenerateGuarantee(DateTime dateIssued, TimeSpan duration) => new Guarantee(dateIssued, duration);
+        private static IGuarantee NoGuarantee() => VoidGuarantee.Instance;
+        public static IGuarantee Factory(DateTime dateIssued, TimeSpan duration) => GenerateGuarantee(dateIssued, duration);
+        public static IGuarantee Factory() => NoGuarantee();
     }
 }

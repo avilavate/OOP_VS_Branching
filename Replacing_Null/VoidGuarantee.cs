@@ -5,6 +5,10 @@ namespace Replacing_Null
     public class VoidGuarantee : IGuarantee
     {
         //Singleton design
+        public VoidGuarantee(DateTime issuedate, TimeSpan duration)
+        {
+           
+        }
         private static VoidGuarantee _instance;
         public static  VoidGuarantee Instance { get {
                 if(_instance == null)
@@ -16,5 +20,6 @@ namespace Replacing_Null
             }  }
         private VoidGuarantee()  {}
         public bool IsValid(DateTime ReportDate) => false;
+        private VoidGuarantee Get() => Instance;
     }
 }
