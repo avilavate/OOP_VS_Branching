@@ -10,7 +10,7 @@ namespace Replacing_Null
     {
         public IGuarantee MoneyBackGuarantee { get; }
         public IGuarantee RepairGuarentee { get; }
-
+      
         public SoldItem(IGuarantee MoneyBackGuarantee, IGuarantee RepairGuarentee)
         {
             if (MoneyBackGuarantee == null) throw new ArgumentNullException("MoneyBackGuarantee can not be null");
